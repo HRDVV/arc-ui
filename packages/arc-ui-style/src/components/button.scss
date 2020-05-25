@@ -1,0 +1,118 @@
+/* Button */
+
+@import '../varibles/default.scss';
+
+@mixin btn-type($bg-color, $border-color) {
+  background-color: $bg-color;
+  border-color: $border-color;
+
+  &:hover {
+    background-color: tint($bg-color, $btn-tint-per);
+    border-color: tint($bg-color, $btn-tint-per);
+  }
+
+  &:active {
+    background-color: shade($bg-color, $btn-shade-per);
+    border-color: shade($bg-color, $btn-shade-per);
+  }
+}
+
+@mixin btn-size($padding, $font-size, $radius) {
+  padding: $padding;
+  font-size: $font-size;
+  border-radius: $radius;
+}
+
+@mixin btn-plain($color) {
+  background-color: tint($color, 90%);
+  color: $color;
+  border-color: $color;
+
+  &:hover {
+    color: $font-color-white;
+    background-color: $color;
+    border-color: $color;
+  }
+
+  &:active {
+    background-color: shade($color, $btn-shade-per);
+    border-color: shade($color, $btn-shade-per);
+  }
+}
+
+.arc-button {
+  appearance: none;
+  line-height: 1;
+  font-weight: 500;
+  cursor: pointer;
+  font-size: $font-size-base;
+  text-align: center;
+  padding: $btn-padding-default;
+  color: $font-color;
+  border: 1px solid $btn-border-default;
+  border-radius: $btn-radius-default;
+  background-color: $btn-bg-default;
+  transition: all .2s;
+  &--primary,
+  &--success,
+  &--error,
+  &--warning,
+  &--info {
+    color: $font-color-white;
+  }
+  &--default {
+    &:hover {
+      color: tint($color-primary, $btn-tint-per);
+      border-color: tint($btn-border-primary, $btn-tint-per);
+    }
+  
+    &:active {
+      color: shade($color-primary, $btn-shade-per);
+      border-color: shade($btn-border-primary, $btn-shade-per);
+    }
+  }
+  &--primary {
+    @include btn-type($btn-bg-primary, $btn-border-primary);
+    &-plain {
+      @include btn-plain($color-primary);
+    }
+  }
+  &--success {
+    @include btn-type($btn-bg-success, $btn-border-success);
+    &-plain {
+      @include btn-plain($color-success);
+    }
+  }
+  &--error {
+    @include btn-type($btn-bg-error, $btn-border-error);
+    &-plain {
+      @include btn-plain($color-error);
+    }
+  }
+  &--warning {
+    @include btn-type($btn-bg-warning, $btn-border-warning);
+    &-plain {
+      @include btn-plain($color-warning);
+    }
+  }
+  &--info {
+    @include btn-type($btn-bg-info, $btn-border-info);
+    &-plain {
+      @include btn-plain($color-info);
+    }
+  }
+
+  &--medium {
+    @include btn-size($btn-padding-medium, $font-size-base, $btn-radius-medium)
+  }
+  &--small {
+    @include btn-size($btn-padding-small, $font-size-sm, $btn-radius-small)
+  }
+  &--mini {
+    @include btn-size($btn-padding-small, $font-size-sm, $btn-radius-small)
+  }
+
+  &--circle {
+    border-radius: $btn-radius-circle;
+  }
+}

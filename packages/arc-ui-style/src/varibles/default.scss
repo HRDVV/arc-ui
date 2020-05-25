@@ -1,14 +1,55 @@
-/* font */
-$font-family                : -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !default;
 /* font-size */
+$font-size-sm               : 12px !default;
 $font-size-base             : 14px !default;
 $font-size-normal           : 16px !default;
 $font-size-lg               : 18px !default;
-$font-size-lger             : 20px !default; 
-/* color use at-ui color */
-$color-primary              : #6190E8 !default;
+$font-size-lger             : 20px !default;
+/* color */
+$color-defalt               : #FFF !default;
+$color-primary              : #1890ff !default;
 $color-success              : #13CE66 !default;
 $color-error                : #FF4949 !default;
-$color-warning              : #FFC82C !default; 
-$color-info                 : #78A4FA !default;
-$color-white                : #FFF !default;
+$color-warning              : #FFC82C !default;
+$color-info                 : #c8c9cc !default;
+/* font */
+$font-family                : -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !default;
+$font-color                 : #606266 !default;
+$font-color-white           : $color-defalt;
+/* size */
+$size-default               : 40px !default;
+$size-medium                : 36px !default;
+$size-small                 : 32px !default;
+$size-mini                  : 28px !default;
+/* border */
+$border-default             : #dcdfe6 !default;
+$border-primary             : $color-primary;
+$border-success             : $color-success;
+$border-error               : $color-error;
+$border-warning             : $color-warning;
+$border-info                : $color-info;
+/* button */
+$btn-padding-default        : 12px 20px !default;
+$btn-padding-medium         : 10px 20px !default;
+$btn-padding-small          : 9px 15px !default;
+$btn-padding-mini           : 7px 15px !default;
+$btn-radius-default         : 4px !default;
+$btn-radius-medium          : 4px !default;
+$btn-radius-small           : 3px !default;
+$btn-radius-mini            : 3px !default;
+$btn-radius-circle          : 20px !default;
+$btn-border-default         : $border-default;
+$btn-border-primary         : $border-primary;
+$btn-border-success         : $border-success;
+$btn-border-error           : $border-error;
+$btn-border-warning         : $border-warning;
+$btn-border-info            : $border-info;
+$btn-bg-default             : $color-defalt;
+$btn-bg-primary             : $color-primary;
+$btn-bg-success             : $color-success;
+$btn-bg-error               : $color-error;
+$btn-bg-warning             : $color-warning;
+$btn-bg-info                : $color-info;
+$btn-tint-per               : 15%;
+$btn-shade-per              : 10%;
+
+

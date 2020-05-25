@@ -1,0 +1,25 @@
+{
+  "name": "arc-ui-style",
+  "version": "1.0.0",
+  "description": "",
+  "main": "css/arc.css",
+  "scripts": {
+    "build": "npm run build-clean && npm run copy && npm run build-scss && npm run build-scss-minify && npm run build-autoprefix",
+    "build-clean": "rimraf css",
+    "build-scss": "node-sass --output-style expanded --source-map true src/index.scss css/arc.css",
+    "build-scss-minify": "node-sass --output-style compressed --source-map true src/index.scss css/arc.min.css",
+    "build-autoprefix": "postcss --use autoprefixer -c postcss.json css/*.css -d css/",
+    "copy": "copyfiles -f src/fonts/*.* css/fonts/",
+    "start": "npm run build-scss -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^9.8.0",
+    "copyfiles": "^2.2.0",
+    "node-sass": "^4.14.1",
+    "postcss-cli": "^7.1.1",
+    "rimraf": "^3.0.2"
+  }
+}
