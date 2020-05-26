@@ -1,15 +1,11 @@
 <template>
-  <div class="demo-block" :class="blockClass">
+  <div class="demo-block">
     <!-- 源码运行 -->
     <div class="source">
       <slot name="demo"></slot>
     </div>
     <!-- 源码 -->
     <div class="meta" ref="meta">
-      <!-- 描述 -->
-      <div class="description" v-if="$slots.default">
-        <slot></slot>
-      </div>
       <!-- 源码 -->
       <div class="highlight">
         <slot name="source"></slot>
@@ -39,15 +35,6 @@ export default {
   },
 
   computed: {
-    lang () {
-      return this.$route.path.split('/')[1]
-    },
-
-    blockClass () {
-      return `demo-${this.lang} demo-${this.$router.currentRoute.path
-        .split('/')
-        .pop()}`
-    },
     controlText () {
       return this.isExpanded ? '隐藏代码' : '显示代码'
     },
@@ -68,9 +55,6 @@ export default {
   watch: {
     isExpanded (val) {
       this.codeArea.style.height = val ? `${this.codeAreaHeight + 1}px` : '0'
-      console.log(this.$el.getElementsByClassName('description').length)
-      console.log(this.$el.getElementsByClassName('highlight'))
-      console.log(this.codeAreaHeight)
       if (!val) {
         this.fixedControl = false
         this.$refs.control.style.left = '0'
@@ -85,10 +69,12 @@ export default {
   padding: 8px 16px;
   margin: auto;
   margin-top: 10px;
-  border-left: solid 5px#fc297f;
-  background-color: #f8d1db;
+  border-left: solid 5px skyblue;
+  border-bottom: solid 1px #e0e0e0;
+  background-color: #ffffff;
   border-radius: 3px;
   transition: 0.2s;
+  text-align: left;
   &.hover {
     box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6),
       0 2px 4px 0 rgba(232, 237, 250, 0.5);

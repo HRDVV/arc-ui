@@ -1,0 +1,13 @@
+/* Col */
+
+@import '../varibles/default.scss';
+
+.arc-col {
+  float: left;
+  @for $i from 1 to 25 {
+    &-#{$i} {
+      width: ($i / 24) * 100%;
+    }
+  }
+}
+

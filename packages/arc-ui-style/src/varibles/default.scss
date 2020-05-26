@@ -15,6 +15,7 @@ $color-info                 : #c8c9cc !default;
 $font-family                : -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif !default;
 $font-color                 : #606266 !default;
 $font-color-white           : $color-defalt;
+$font-color-disabled        : #d2d2d2 !default;
 /* size */
 $size-default               : 40px !default;
 $size-medium                : 36px !default;
@@ -43,12 +44,14 @@ $btn-border-success         : $border-success;
 $btn-border-error           : $border-error;
 $btn-border-warning         : $border-warning;
 $btn-border-info            : $border-info;
+$btn-border-disabled        : #ececec !default;
 $btn-bg-default             : $color-defalt;
 $btn-bg-primary             : $color-primary;
 $btn-bg-success             : $color-success;
 $btn-bg-error               : $color-error;
 $btn-bg-warning             : $color-warning;
 $btn-bg-info                : $color-info;
+$btn-bg-disabled            : #f7f7f7 !default;
 $btn-tint-per               : 15%;
 $btn-shade-per              : 10%;
 

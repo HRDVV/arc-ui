@@ -1,7 +1,13 @@
-import ArcButton from '@packages/components/Button'
+import Button from '@packages/components/button'
+import ButtonGroup from '@packages/components/button-group'
+import Row from '@packages/components/row'
+import Col from '@packages/components/col'
 
 const components = [
-  ArcButton
+  Button,
+  ButtonGroup,
+  Row,
+  Col
 ]
 
 const install = (Vue, opts = {}) => {
@@ -11,7 +17,6 @@ const install = (Vue, opts = {}) => {
       throw new Error('not found component name !!!')
     }
     if (install.installed) return
-    install.installed = true
     Vue.component(cp.name, cp)
   }
 }
@@ -20,7 +25,10 @@ if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
 
-export default {
-  install,
-  ...components
+export {
+  Button,
+  ButtonGroup,
+  Row,
+  Col
 }
+export default { install }

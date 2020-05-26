@@ -63,6 +63,8 @@ const webpackChain = function (config) {
         .alias
         .set('@', resolve(__dirname, '../', 'examples/src'))
         .set('@packages', resolve(__dirname, '../', 'packages'))
+      config.resolve.extensions
+        .add('.js')
       return this
     },
     jsRules () {

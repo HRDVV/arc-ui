@@ -6,12 +6,12 @@
   background-color: $bg-color;
   border-color: $border-color;
 
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: tint($bg-color, $btn-tint-per);
     border-color: tint($bg-color, $btn-tint-per);
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background-color: shade($bg-color, $btn-shade-per);
     border-color: shade($bg-color, $btn-shade-per);
   }
@@ -28,13 +28,13 @@
   color: $color;
   border-color: $color;
 
-  &:hover {
+  &:hover:not(:disabled) {
     color: $font-color-white;
     background-color: $color;
     border-color: $color;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     background-color: shade($color, $btn-shade-per);
     border-color: shade($color, $btn-shade-per);
   }
@@ -53,6 +53,10 @@
   border-radius: $btn-radius-default;
   background-color: $btn-bg-default;
   transition: all .2s;
+  .icon {
+    margin-right: 5px;
+    display: inline-block;
+  }
   &--primary,
   &--success,
   &--error,
@@ -61,44 +65,59 @@
     color: $font-color-white;
   }
   &--default {
-    &:hover {
+    &:hover:not(:disabled) {
       color: tint($color-primary, $btn-tint-per);
       border-color: tint($btn-border-primary, $btn-tint-per);
     }
   
-    &:active {
+    &:active:not(:disabled) {
       color: shade($color-primary, $btn-shade-per);
       border-color: shade($btn-border-primary, $btn-shade-per);
     }
   }
   &--primary {
     @include btn-type($btn-bg-primary, $btn-border-primary);
-    &-plain {
+    &.is-plain {
       @include btn-plain($color-primary);
     }
   }
   &--success {
     @include btn-type($btn-bg-success, $btn-border-success);
-    &-plain {
+    &.is-plain {
       @include btn-plain($color-success);
     }
   }
   &--error {
     @include btn-type($btn-bg-error, $btn-border-error);
-    &-plain {
+    &.is-plain {
       @include btn-plain($color-error);
     }
   }
   &--warning {
     @include btn-type($btn-bg-warning, $btn-border-warning);
-    &-plain {
+    &.is-plain {
       @include btn-plain($color-warning);
     }
   }
   &--info {
     @include btn-type($btn-bg-info, $btn-border-info);
-    &-plain {
+    &.is-plain {
       @include btn-plain($color-info);
+    }
+  }
+  &--text {
+    color: $color-primary;
+    border: 0 none;
+    background-color: transparent;
+    &:hover {
+      color: tint($color-primary, $btn-tint-per);
+    }
+    &:active {
+      color: shade($color-primary, $btn-shade-per);
+    }
+    &:disabled {
+      color: shade($font-color-disabled, 20%);
+      cursor: not-allowed;
     }
   }
 
@@ -114,5 +133,46 @@
 
   &--circle {
     border-radius: $btn-radius-circle;
+  }
+  &:disabled:not(&--text) {
+    cursor: not-allowed;
+    opacity: .6;
+  }
+  &.is-loading {
+    & > .icon-loader {
+      animation: loading 1s linear infinite;
+    }
+  }
+}
+
+.arc-button-group {
+  .arc-button:not(:last-child) {
+    border-right-color: $btn-border-default;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .arc-button + .arc-button {
+    border-left: 0 none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &--medium {
+    .arc-button {
+      @include btn-size($btn-padding-medium, $font-size-base, $btn-radius-medium)
+    }
+  }
+  &--small {
+    .arc-button {
+      @include btn-size($btn-padding-small, $font-size-sm, $btn-radius-small)
+    }
+  }
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
