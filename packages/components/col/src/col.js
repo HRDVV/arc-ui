@@ -18,15 +18,15 @@ export default {
       default: 0
     },
     // < 768
-    xl: [Object, Number],
+    xs: [Object, Number],
     // ≥ 768
-    lg: [Object, Number],
+    sm: [Object, Number],
     // >= 992
     md: [Object, Number],
     // >= 1200
-    sm: [Object, Number],
+    lg: [Object, Number],
     // >= 1920
-    xs: [Object, Number]
+    xl: [Object, Number]
   },
   computed: {
     style () {

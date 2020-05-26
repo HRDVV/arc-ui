@@ -2,12 +2,50 @@
 
 @import '../varibles/default.scss';
 
+@mixin reactive-size($size) {
+  @for $i from 1 to 25 {
+    &-#{$size}-#{$i} {
+      width: ($i / 24) * 100%;
+    }
+    &-#{$size}-offset-#{$i},
+    &-#{$size}-push-#{$i} {
+      margin-left: ($i / 24) * 100%;
+    }
+    &-#{$size}-pull-#{$i} {
+      margin-left: -($i / 24) * 100%;
+    }
+  }
+}
+
 .arc-col {
   float: left;
   @for $i from 1 to 25 {
     &-#{$i} {
       width: ($i / 24) * 100%;
     }
+    &-offset-#{$i},
+    &-push-#{$i} {
+      margin-left: ($i / 24) * 100%;
+    }
+    &-pull-#{$i} {
+      margin-left: -($i / 24) * 100%;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    @include reactive-size(xs)
+  }
+  @media screen and (min-width: 768px) {
+    @include reactive-size(sm)
+  }
+  @media screen and (min-width: 992px) {
+    @include reactive-size(md)
+  }
+  @media screen and (min-width: 1200px) {
+    @include reactive-size(lg)
+  }
+  @media screen and (min-width: 1920px) {
+    @include reactive-size(xl)
   }
 }
 

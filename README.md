@@ -7,12 +7,12 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm run doc:dev
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run doc:build
 ```
 
 ### Run your unit tests
@@ -23,6 +23,10 @@ npm run test:unit
 ### Lints and fixes files
 ```
 npm run lint
+```
+### Compiles art-ui
+```
+npm run lib
 ```
 
 ### Customize configuration

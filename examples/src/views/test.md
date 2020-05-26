@@ -33,16 +33,62 @@
 ```html
   <arc-row :gutter="0">
     <arc-col :span="6">
-       <arc-button type="primary" style="display: block">默认按钮</arc-button>
+      <p style="height: 30px;background: skyblue;"></p>
     </arc-col>
     <arc-col :span="6">
-       <arc-button type="primary" style="display: block">默认按钮</arc-button>
+      <p style="height: 30px;background: pink;"></p>
     </arc-col>
     <arc-col :span="6">
-       <arc-button type="primary" style="display: block">默认按钮</arc-button>
+      <p style="height: 30px;background: purple;"></p>
     </arc-col>
     <arc-col :span="6">
-       <arc-button type="primary" style="display: block">默认按钮</arc-button>
+      <p style="height: 30px;background: yellow;"></p>
+    </arc-col>
+  </arc-row>
+  <arc-row :gutter="20" style="margin-top: 20px;">
+    <arc-col :span="6">
+      <p style="height: 30px;background: skyblue;"></p>
+    </arc-col>
+    <arc-col :span="6">
+      <p style="height: 30px;background: pink;"></p>
+    </arc-col>
+    <arc-col :span="6">
+      <p style="height: 30px;background: purple;"></p>
+    </arc-col>
+    <arc-col :span="6">
+      <p style="height: 30px;background: yellow;"></p>
+    </arc-col>
+  </arc-row>
+  <arc-row style="margin-top: 20px;" :gutter="20">
+    <arc-col
+      :span="6"
+      :offset="6"
+    >
+      <p style="height: 30px;background: skyblue;"></p>
+    </arc-col>
+    <arc-col
+      :span="6"
+      :offset="6"
+    >
+      <p style="height: 30px;background: skyblue;"></p>
+    </arc-col>
+  </arc-row>
+  <arc-row style="margin-top: 20px;" :gutter="20">
+    <arc-col
+      :span="6"
+      :push="6"
+    >
+      <p style="height: 30px;background: skyblue;"></p>
+    </arc-col>
+  </arc-row>
+  <arc-row style="margin-top: 20px;" :gutter="20">
+    <arc-col
+      :span="6"
+      :push="6"
+      :md="12"
+      :sm="6"
+    >
+      <p style="height: 30px;background: skyblue;"></p>
     </arc-col>
   </arc-row>
 ```
