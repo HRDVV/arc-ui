@@ -2,12 +2,14 @@ import Button from '@packages/components/button'
 import ButtonGroup from '@packages/components/button-group'
 import Row from '@packages/components/row'
 import Col from '@packages/components/col'
+import Input from '@packages/components/input'
 
 const components = [
   Button,
   ButtonGroup,
   Row,
-  Col
+  Col,
+  Input
 ]
 
 const install = (Vue, opts = {}) => {
@@ -29,6 +31,7 @@ export {
   Button,
   ButtonGroup,
   Row,
-  Col
+  Col,
+  Input
 }
 export default { install }
