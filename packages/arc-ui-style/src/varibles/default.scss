@@ -28,6 +28,8 @@ $border-success             : $color-success;
 $border-error               : $color-error;
 $border-warning             : $color-warning;
 $border-info                : $color-info;
+/* Transition */
+$transition-all-duration    : .3s !default;
 /* button */
 $btn-padding-default        : 12px 20px !default;
 $btn-padding-medium         : 10px 20px !default;
@@ -54,5 +56,21 @@ $btn-bg-info                : $color-info;
 $btn-bg-disabled            : #f7f7f7 !default;
 $btn-tint-per               : 15%;
 $btn-shade-per              : 10%;
+/* Input */
+$input-padding              : 0 15px !default;
+$input-padding-prefix       : 0 15px 0 30px !default;
+$input-padding-suffix       : 0 30px 0 15px !default;
+$input-padding-pre-suffix   : 0 30px;
+$input-border               : $border-default;
+$input-border-focus         : $border-primary;
+$input-border-disabled      : #e4e7ed !default;
+$input-radius               : 4px !default;
+$input-height-default       : $size-default;
+$input-height-medium        : $size-medium;
+$input-height-small         : $size-small;
+$input-height-mini          : $size-mini;
+$input-bg                   : #fff !default;
+$input-bg-disabled          : #f5f7fa !default;
+$input-color-disabled       : #c0c4cc !default;
 
 

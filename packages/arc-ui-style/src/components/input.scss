@@ -1,0 +1,152 @@
+/* Input */
+
+@import '../varibles/default.scss';
+@import '../mixins/index.scss';
+
+$cp-prefix: arc-input;
+
+@mixin input-size(
+  $height,
+  $line-height
+) {
+  height: $height;
+  line-height: $line-height;
+  @content;
+}
+
+%icon-slot {
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+  &:after {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 0;
+    vertical-align: middle;
+  }
+}
+
+.arc-input {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  vertical-align: top;
+  &__inner {
+    appearance: none;
+    width: 100%;
+    background-color: #fff;
+    height: $input-height-default;
+    padding: $input-padding;
+    line-height: $input-height-default;
+    border: 1px solid $input-border;
+    border-radius: $input-radius;
+    transition: all $transition-all-duration;
+    &:hover {
+      border-color: shade($input-border, 15%);
+    }
+    &:focus {
+      border-color: $input-border-focus;
+    }
+    &:disabled,
+    &:read-only {
+      background-color: $input-bg-disabled ;
+      border-color: $input-border-disabled ;
+      color: $input-color-disabled ;
+      cursor: not-allowed;
+    }
+  }
+  &--medium {
+    .#{$cp-prefix}__inner {
+      @include input-size($input-height-medium, $input-height-medium)
+    }
+  }
+  &--small {
+    .#{$cp-prefix}__inner {
+      @include input-size($input-height-small, $input-height-small) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  &--mini {
+    .#{$cp-prefix}__inner  {
+      @include input-size($input-height-mini, $input-height-mini) {
+        font-size: $font-size-sm;
+      }
+    }
+  }
+  &--prefix {
+    .#{$cp-prefix}__inner {
+      padding: $input-padding-prefix;
+    }
+    .#{$cp-prefix}__prefix {
+      position: absolute;
+      height: 100%;
+      width: 25px;
+      top: 0;
+      left: 5px;
+      text-align: center;
+      color: $input-color-disabled;
+      .icon {
+        @extend %icon-slot
+      }
+    }
+  }
+  &--suffix {
+    .#{$cp-prefix}__inner {
+      padding: $input-padding-suffix;
+    }
+    .#{$cp-prefix}__suffix {
+      position: absolute;
+      height: 100%;
+      width: 25px;
+      top: 0;
+      right: 5px;
+      text-align: center;
+      color: $input-color-disabled;
+      .icon {
+        @extend %icon-slot
+      }
+    }
+  }
+}
+
+.arc-input-group {
+  display: inline-table;
+  .#{$cp-prefix}__inner {
+    display: table-cell;
+    vertical-align: middle;
+  }
+  &--prepend {
+    .#{$cp-prefix}__inner {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  &--append {
+    .#{$cp-prefix}__inner {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  &__prepend {
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px solid $input-border;
+    border-right: 0 none;
+    border-top-left-radius: $input-radius;
+    border-bottom-left-radius: $input-radius;
+    background: $input-bg-disabled;
+    padding: $input-padding;
+  }
+  &__append {
+    display: table-cell;
+    vertical-align: middle;
+    border: 1px solid $input-border;
+    border-left: 0 none;
+    border-top-right-radius: $input-radius;
+    border-bottom-right-radius: $input-radius;
+    background: $input-bg-disabled;
+    padding: $input-padding;
+  }
+}

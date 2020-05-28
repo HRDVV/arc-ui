@@ -1,4 +1,3 @@
-
 ### 普通按钮
 :::demo
 ```html
@@ -97,7 +96,29 @@
 ### 输入框
 :::demo
 ```html
-  <arc-input :value="2323" />
+  <arc-input v-model="demo" style="margin-right: 5px;width: 180px" maxlength="7" type="number" placeholder="阿拉斯加">
+    <span slot="prefix">
+      <i class="icon icon-arrow-left" ></i>
+    </span>
+  </arc-input>
+  <arc-input :value="2323" style="margin-right: 5px;width: 180px">
+    <span slot="suffix">22</span>
+  </arc-input>
+  <arc-input :value="2323" style="margin-right: 5px;width: 180px" prefix="icon-align-right"></arc-input>
+  <arc-input :value="2323" style="margin-right: 5px;width: 180px" suffix="icon-align-right"></arc-input>
+  <arc-input size="medium" style="margin-right: 5px;width: 180px" readonly></arc-input>
+  <arc-input size="small" style="margin-right: 5px;width: 180px"></arc-input>
+  <arc-input size="mini" style="margin-right: 5px;width: 180px"></arc-input>
 ```
 :::
 
+<!-- <script>
+export default {
+  data() {
+    return {
+      demo: ''
+    }
+  }
+}
+</script>
+ -->

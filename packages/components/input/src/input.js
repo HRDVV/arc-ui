@@ -40,6 +40,15 @@ export default {
           classes.push(`arc-input--${prop}`)
         }
       })
+      if (this.$slots.prefix || this.$slots.suffix) {
+        classes.push('arc-input-group')
+      }
+      if (this.$slots.prefix) {
+        classes.push('arc-input-group--prepend')
+      }
+      if (this.$slots.suffix) {
+        classes.push('arc-input-group--append')
+      }
       return classes
     },
     attrs () {
@@ -52,51 +61,86 @@ export default {
   },
   render (h) {
     const childs = []
-    const innerSlot = []
-    if (this.prefix) {
+    if (this.prefix && !this.$slots.prefix) {
       childs.push(
         h(
           'span',
-          { class: 'arc-input__' + this.prefix },
-          h(
-            'i',
-            { class: `icon ${this.prefix}` },
-            null
-          )
+          { class: 'arc-input__prefix' },
+          [
+            h(
+              'i',
+              { class: `icon ${this.prefix}` },
+              null
+            )
+          ]
         )
       )
     }
     if (this.$slots.prefix) {
-      innerSlot.push(this.$slots.prefix)
-    }
-    if (this.$slots.suffix) {
-      innerSlot.push(this.$slots.suffix)
+      childs.push(
+        h(
+          'span',
+          { class: 'arc-input-group__prepend' },
+          this.$slots.prefix
+        )
+      )
     }
     childs.push(
       h(
         'input',
         {
           class: 'arc-input__inner',
-          attrs: this.attrs
+          attrs: this.attrs,
+          on: {
+            change: this.changeHandler,
+            input: this.inputHandler,
+            focus: this.focusHandler,
+            blur: this.blurHandler
+          }
         },
-        innerSlot
+        null
       )
     )
-    if (this.suffix) {
+    if (this.suffix && !this.$slots.suffix) {
       childs.push(
         h(
           'span',
-          { class: 'arc-input__' + this.suffix },
-          h(
-            'i',
-            { class: `icon ${this.suffix}` },
-            null
-          )
+          { class: 'arc-input__suffix' },
+          [
+            h(
+              'i',
+              { class: `icon ${this.suffix}` },
+              null
+            )
+          ]
+        )
+      )
+    }
+    if (this.$slots.suffix) {
+      childs.push(
+        h(
+          'span',
+          { class: 'arc-input-group__append' },
+          this.$slots.suffix
         )
       )
     }
     return h('div', {
       class: this.classes
     }, childs)
+  },
+  methods: {
+    changeHandler (e) {
+      this.$emit('change', e.target.value)
+    },
+    inputHandler (e) {
+      this.$emit('input', e.target.value)
+    },
+    focusHandler (e) {
+      this.$emit('focus', e)
+    },
+    blurHandler (e) {
+      this.$emit('blur', e)
+    }
   }
 }

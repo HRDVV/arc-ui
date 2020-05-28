@@ -52,7 +52,7 @@
   border: 1px solid $btn-border-default;
   border-radius: $btn-radius-default;
   background-color: $btn-bg-default;
-  transition: all .2s;
+  transition: all $transition-all-duration;
   .icon {
     margin-right: 5px;
     display: inline-block;
