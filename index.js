@@ -3,13 +3,15 @@ import ButtonGroup from '@packages/components/button-group'
 import Row from '@packages/components/row'
 import Col from '@packages/components/col'
 import Input from '@packages/components/input'
+import Textarea from '@packages/components/textarea'
 
 const components = [
   Button,
   ButtonGroup,
   Row,
   Col,
-  Input
+  Input,
+  Textarea
 ]
 
 const install = (Vue, opts = {}) => {
@@ -32,6 +34,7 @@ export {
   ButtonGroup,
   Row,
   Col,
-  Input
+  Input,
+  Textarea
 }
 export default { install }

@@ -96,7 +96,7 @@
 ### 输入框
 :::demo
 ```html
-  <arc-input v-model="demo" style="margin-right: 5px;width: 180px" maxlength="7" type="number" placeholder="阿拉斯加">
+  <arc-input value="32323" style="margin-right: 5px;width: 180px" type="number">
     <span slot="prefix">
       <i class="icon icon-arrow-left" ></i>
     </span>
@@ -112,13 +112,9 @@
 ```
 :::
 
-<!-- <script>
-export default {
-  data() {
-    return {
-      demo: ''
-    }
-  }
-}
-</script>
- -->
+### 文本框
+:::demo
+```html
+<arc-textarea autosize :min-rows="3"></arc-textarea>
+```
+:::

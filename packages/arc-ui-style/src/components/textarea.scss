@@ -1,0 +1,18 @@
+/* Row */
+
+@import '../varibles/default.scss';
+@import '../mixins/index.scss';
+
+.arc-textarea {
+  width: 100%;
+  border: 1px solid $input-border;
+  border-radius: $input-radius;
+  transition: border $transition-all-duration;
+  padding: 5px 10px;
+  &:hover {
+    border-color: shade($input-border, 15%);
+  }
+  &:focus {
+    border-color: $input-border-focus;
+  }
+}
